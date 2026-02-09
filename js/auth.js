@@ -30,7 +30,7 @@ async function login() {
     localStorage.setItem("email", data.email);
     localStorage.setItem("role", data.role);
 
-    window.location.href = "dashboard.html";
+    window.location.href = "/dashboard";
 
   } catch (err) {
     console.error("Login error:", err);

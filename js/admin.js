@@ -9,7 +9,7 @@ function requireAdmin() {
   const role = localStorage.getItem("role");
 
   if (role !== "ADMIN") {
-    location.href = "dashboard.html";
+    location.href = "/dashboard";
   }
 }
 

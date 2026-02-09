@@ -5,7 +5,7 @@ function logout() {
   localStorage.removeItem("email");
   localStorage.removeItem("role");
 
-  window.location.href = "login.html";
+  window.location.href = "/login";
 }
 
 function requireAuth() {

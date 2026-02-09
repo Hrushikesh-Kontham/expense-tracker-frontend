@@ -66,7 +66,7 @@ async function register() {
     confirmPasswordInput.value = "";
 
     setTimeout(() => {
-      window.location.href = "login.html";
+      window.location.href = "/login";
     }, 1500);
 
   } catch (err) {
