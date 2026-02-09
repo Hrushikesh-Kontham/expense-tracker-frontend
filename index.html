@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – Expense Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <h1 class="login-title">Expense Tracker</h1>
+      <p class="login-subtitle">Sign in to continue</p>
+
+      <div class="login-field">
+        <label>Email</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <div class="login-field">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+
+      <button class="login-btn" onclick="login()">Sign In</button>
+
+      <p style="text-align:center; margin-top:18px; color:#94a3b8; font-size:14px;">
+        Don’t have an account?
+        <span style="color:#2dd4bf; cursor:pointer;" onclick="location.href='register.html'">
+          Register
+        </span>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- JS Order matters -->
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+
+</body>
+</html>
