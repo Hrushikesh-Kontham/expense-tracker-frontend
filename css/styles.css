@@ -1,0 +1,707 @@
+:root {
+  --bg: #020617;
+  --card: #0b1220;
+  --border: #1e293b;
+
+  --text: #f9fafb;
+  --muted: #94a3b8;
+  --text-muted: #94a3b8;
+
+  --accent: #2dd4bf;
+  --danger: #ef4444;
+  --success: #22c55e;
+}
+
+/* ================= RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ================= APP LAYOUT ================= */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 260px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand {
+  margin-bottom: 28px;
+}
+
+.app-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-email {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.nav-item {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-item.active {
+  background: rgba(45, 212, 191, 0.15);
+  color: var(--accent);
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= MAIN ================= */
+
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* ================= DASHBOARD SUMMARY ================= */
+
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 36px;
+}
+
+.summary-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.summary-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.summary-value {
+  display: block;
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.summary-value.accent {
+  color: var(--accent);
+}
+
+.summary-value.danger {
+  color: var(--danger);
+}
+
+.summary-value.success {
+  color: var(--success);
+}
+
+/* ================= CARDS ================= */
+
+.expense-card {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 26px;
+  margin-bottom: 26px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+/* ================= FORMS ================= */
+
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  row-gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: span 2;
+}
+
+label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+input,
+select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  height: 44px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Remove number arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Date picker visibility fix */
+.expense-form input[type="date"] {
+  color-scheme: white;
+}
+
+.expense-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* Select arrow fix */
+select {
+  appearance: none;
+  padding-right: 44px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* Add button */
+.add-btn {
+  grid-column: span 3;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #022c22;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  opacity: 0.95;
+}
+
+.form-error {
+  margin-top: 10px;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* ================= EXPENSE LIST ================= */
+
+.expense-list {
+  list-style: none;
+}
+
+.expense-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg);
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.expense-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.expense-left small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.expense-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.expense-amount {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Buttons */
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  color: var(--accent);
+}
+
+.edit-btn:hover {
+  background: rgba(45, 212, 191, 0.1);
+  border-color: var(--accent);
+}
+
+.delete-btn {
+  color: var(--danger);
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--danger);
+}
+
+.empty {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ================= MODALS (EDIT + DELETE) ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 9999;
+}
+
+.modal-overlay.hidden {
+  display: none !important;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  animation: fadeUp 0.25s ease;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.modal-text {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+/* Modal buttons */
+.cancel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+
+  padding: 12px 18px;
+  border-radius: 12px;
+
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancel-btn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.update-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #022c22;
+  transition: 0.2s;
+}
+
+.update-btn:hover {
+  opacity: 0.95;
+}
+
+.delete-btn-modal {
+  background: var(--danger);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 800;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.delete-btn-modal:hover {
+  opacity: 0.9;
+}
+
+/* ================= LOGIN PAGE (LOCKED) ================= */
+
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #020617, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.login-card {
+  background: #0b1220;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 34px 32px 36px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.9);
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.login-field label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.login-field input {
+  background: #020617;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.login-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.login-btn {
+  width: 100%;
+  height: 46px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  background: var(--accent);
+  color: #022c22;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  opacity: 0.95;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 28px;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expense-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .field.full {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    margin-bottom: 0;
+  }
+
+  .nav {
+    display: flex;
+    gap: 12px;
+  }
+
+  .nav-item {
+    margin-top: 0;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .main {
+    padding: 22px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .expense-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: span 1;
+  }
+
+  .add-btn {
+    grid-column: span 1;
+  }
+
+  .expense-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .expense-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 14px 16px;
+  }
+
+  .app-name {
+    font-size: 16px;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .expense-card {
+    padding: 18px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  input,
+  select {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .add-btn {
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= FONT FIX (YOUR BOTTOM BLOCK KEPT CLEAN) ================= */
+
+.modal-actions button,
+.modal-actions .add-btn,
+.modal-actions .cancel-btn,
+.modal-actions .delete-btn-modal {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+}
+
+.modal-actions .add-btn {
+  background: var(--accent) !important;
+  color: #022c22 !important;
+  border: none !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  cursor: pointer;
+}
+
+.modal-actions .cancel-btn {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  cursor: pointer;
+}
+
+.modal-actions .delete-btn-modal {
+  background: var(--danger) !important;
+  border: none !important;
+  color: white !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  cursor: pointer;
+}

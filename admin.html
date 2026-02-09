@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Expense Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="app-name">Expense Tracker</div>
+        <div class="user-email" id="profileEmail"></div>
+      </div>
+
+      <div class="nav">
+        <div class="nav-item" onclick="location.href='dashboard.html'">Dashboard</div>
+        <div class="nav-item" onclick="location.href='expenses.html'">Expenses</div>
+        <div class="nav-item" onclick="location.href='settings.html'">Settings</div>
+        <div class="nav-item" onclick="location.href='profile.html'">Profile</div>
+        <div class="nav-item active admin-only">Admin</div>
+      </div>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="header">
+      <h1>Admin Panel</h1>
+    </header>
+
+    <section class="expense-card">
+      <h2 class="card-title">Users</h2>
+
+      <div style="margin-bottom: 16px;">
+        <input id="searchInput" placeholder="Search by email..." style="width: 100%; max-width: 380px;">
+      </div>
+
+      <div id="adminEmptyState" class="empty">No users found.</div>
+
+      <ul class="expense-list" id="usersList"></ul>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= ENABLE/DISABLE CONFIRM MODAL ================= -->
+<div id="adminActionModal" class="modal-overlay hidden">
+  <div class="modal-card">
+    <h2 class="modal-title" id="adminModalTitle">Confirm Action</h2>
+    <p class="modal-text" id="adminModalText"></p>
+
+    <div class="modal-actions">
+      <button class="cancel-btn" onclick="closeAdminModal()">Cancel</button>
+      <button class="add-btn" id="adminConfirmBtn" onclick="confirmAdminAction()">Confirm</button>
+    </div>
+  </div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

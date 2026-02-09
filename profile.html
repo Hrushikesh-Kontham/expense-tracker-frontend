@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile – Expense Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="app-name">Expense Tracker</div>
+        <div class="user-email" id="profileEmail"></div>
+      </div>
+
+      <div class="nav">
+        <div class="nav-item" onclick="location.href='dashboard.html'">Dashboard</div>
+        <div class="nav-item" onclick="location.href='expenses.html'">Expenses</div>
+        <div class="nav-item" onclick="location.href='settings.html'">Settings</div>
+        <div class="nav-item active">Profile</div>
+        <div class="nav-item admin-only" onclick="location.href='admin.html'">Admin</div>
+      </div>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <h1>Profile</h1>
+    </header>
+
+    <section class="expense-card">
+      <h2 class="card-title">Account</h2>
+      <input disabled id="emailField">
+    </section>
+  </main>
+
+</div>
+
+<!-- ✅ common.js MUST come first -->
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    requireAuth();
+    applyRoleVisibility();
+    setProfileEmail();
+
+    const email = localStorage.getItem("email") || "";
+    document.getElementById("emailField").value = email;
+  });
+</script>
+
+</body>
+</html>

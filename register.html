@@ -1,0 +1,52 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register – Expense Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <h1 class="login-title">Expense Tracker</h1>
+      <p class="login-subtitle">Create your account</p>
+
+      <div class="login-field">
+        <label>Email</label>
+        <input id="email" type="email" placeholder="you@example.com">
+      </div>
+
+      <div class="login-field">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="••••••••">
+      </div>
+
+      <div class="login-field">
+        <label>Confirm Password</label>
+        <input id="confirmPassword" type="password" placeholder="••••••••">
+      </div>
+
+      <!-- ✅ MESSAGE BOX -->
+      <p class="form-error" id="registerMsg"></p>
+
+      <!-- ✅ BUTTON WITH ID -->
+      <button class="login-btn" id="registerBtn" onclick="register()">
+        Create Account
+      </button>
+
+      <p style="text-align:center; margin-top:18px; color:#94a3b8; font-size:14px;">
+        Already have an account?
+        <span style="color:#2dd4bf; cursor:pointer;" onclick="location.href='login.html'">
+          Login
+        </span>
+      </p>
+
+    </div>
+  </div>
+<script src="js/config.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

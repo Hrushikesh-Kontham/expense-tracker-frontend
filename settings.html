@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings – Expense Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="app-name">Expense Tracker</div>
+        <div class="user-email" id="profileEmail"></div>
+      </div>
+
+      <div class="nav">
+        <div class="nav-item" onclick="location.href='dashboard.html'">Dashboard</div>
+        <div class="nav-item" onclick="location.href='expenses.html'">Expenses</div>
+        <div class="nav-item active">Settings</div>
+        <div class="nav-item" onclick="location.href='profile.html'">Profile</div>
+        <div class="nav-item admin-only" onclick="location.href='admin.html'">Admin</div>
+      </div>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main">
+
+    <header class="header">
+      <h1>Settings</h1>
+    </header>
+
+    <section class="expense-card">
+      <h2 class="card-title">Preferences</h2>
+
+      <div class="expense-form">
+
+        <div class="field">
+          <label>Monthly Budget</label>
+          <input id="budgetInput" type="number" placeholder="Enter monthly budget" />
+        </div>
+
+        <div class="field">
+          <label>Currency</label>
+          <select id="currencySelect">
+            <option value="₹">INR (₹)</option>
+            <option value="$">USD ($)</option>
+            <option value="€">EUR (€)</option>
+          </select>
+        </div>
+
+        <button class="add-btn" onclick="saveSettings()">
+          Save Settings
+        </button>
+        <p class="form-error" id="settingsMsg"></p>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ✅ common.js MUST be first -->
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/settings.js"></script>
+
+</body>
+</html>
